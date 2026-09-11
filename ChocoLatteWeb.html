@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choco Latte - Business Proposal & Cafe Portfolio</title>
+    <style>
+        :root {
+            --primary-orange: #d97706;
+            --dark-brown: #3b2f2f;
+            --light-bg: #fdfbf7;
+            --accent-gold: #fbbf24;
+            --text-color: #2d2d2d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-brown), #1f1717);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            border-bottom: 6px solid var(--primary-orange);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            font-style: italic;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            color: var(--dark-brown);
+            margin-bottom: 2.5rem;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+         /* Enhanced Single Big Paragraph Card */
+        .intro-container {
+            background: white;
+            padding: 2.5rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(59, 47, 47, 0.06);
+            border-left: 6px solid var(--primary-orange);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .intro-container:hover {
+            box-shadow: 0 10px 30px rgba(59, 47, 47, 0.1);
+        }
+
+        .intro-container p {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-container p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(59, 47, 47, 0.06);
+            border-top: 5px solid var(--primary-orange);
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(59, 47, 47, 0.12);
+        }
+
+        .team-card h3 {
+            color: var(--dark-brown);
+            font-size: 1.35rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .team-card .role {
+            font-weight: bold;
+            color: var(--primary-orange);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .team-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Menu Section */
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .menu-category h3 {
+            font-size: 1.7rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .menu-item.bestseller::before {
+            content: 'BEST SELLING!';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: var(--primary-orange);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item h4 {
+            font-size: 1.15rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.7rem;
+        }
+
+        .price-list {
+            list-style: none;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            padding-top: 4px;
+            border-top: 1px solid #f3f4f6;
+        }
+
+        .price-list li:first-child {
+            border-top: none;
+        }
+
+        footer {
+            background: var(--dark-brown);
+            color: white;
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(59, 47, 47, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--primary-orange);
+        }
+
+        .nav-logo {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" class="nav-logo">CHOCO LATTE</a>
+        <ul class="nav-links">
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#target-market">Target Market</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="ChocoLatte.jpg" alt="Choco Latte Logo" class="logo">
+        <h1>CHOCO LATTE</h1>
+        <p>"WHERE EVERY SIP FEELS LIKE A WARM HUG, AND EVERY BITE TASTES LIKE HOME."</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Introduction of the Business -->
+        <section id="intro">
+            <h2 class="section-title">Introduction of the Business</h2>
+            <div class="intro-container"
+            <p>Welcome to Choco Latte, a cozy neighborhood sanctuary where the rich, comforting embrace of artisanal chocolate meets the smooth, invigorating craft of specialty coffee. Nestled in the heart of the community, our cafe is designed as a warm haven for workers who are in a rush, and friends looking to slow down and savor the moment.</p>
+            </div>
+        </section>
+
+        <!-- Target Market -->
+        <section id="target-market">
+            <h2 class="section-title">Target Market</h2>
+            <div class="intro-container">
+                <p><strong>Age Range & Audience:</strong> Our target market comprises young professionals, early-career managers, and busy parents aged 25 to 45 who balance demanding careers and families.</p>
+                <p><strong>Location:</strong> We are positioned across urban and semi-urban business districts, near corporate parks, co-working spaces, transit hubs, and major commercial centers throughout the Philippines.</p>
+                <p><strong>Lifestyle & Purchasing Behavior:</strong> Our customers maintain fast-paced schedules featuring early commutes, long desk hours, and frequent overtime that lead to chronic mental and physical fatigue. To cope, they rely on quick, accessible caffeine sources—such as instant coffee, cafe runs, or ready-to-drink options—to jumpstart their mornings and beat the afternoon slump.</p>
+                <p><strong>Food Preferences & Suitability:</strong> They are convenience-driven, productivity-focused individuals drawn to small luxuries and comfort foods like sweet chocolate-coffee blends that offer a rapid mental break or mood boost during stressful workdays.</p>
+            </div>
+        </section>
+
+        <!-- Business Location -->
+        <section id="location">
+            <h2 class="section-title">Business Location</h2>
+            <div class="intro-container">
+                <p><strong>Proposed Location:</strong> The proposed location of our cafe business is along Don Apolinar Velez Street, Cagayan de Oro City, Misamis Oriental, situated in the heart of the downtown commercial and business district of the city.</p>
+                <p><strong>Reason for Choosing the Location:</strong> Don Apolinar Velez Street was chosen because it is one of the main and busiest streets in downtown CDO, functioning as a major city thoroughfare with very high daily traffic. Lined with companies, schools, and commercial buildings, it ensures a continuous flow of potential customers looking for a place to dine, study, work, and unwind.</p>
+                <p><strong>Accessibility:</strong> The location is highly accessible to everyone, being serviced by almost all public jeepney routes going to Divisoria, Carmen, and Lapasan. It is accessible to private vehicles with nearby pay-parking areas, features wide and pedestrian-friendly sidewalks for walk-in customers, and remains easily accessible for suppliers and delivery riders like GrabFood and Foodpanda.</p>
+                <p><strong>Nearby Establishments & Landmarks:</strong> The cafe is surrounded by key establishments such as banks and BPO/office buildings; schools and universities like City Central School and MOGCHS; malls and commercial centers including Centrio Mall, Gaisano, and local shops; hotels, hospitals, and government offices; and prominent landmarks like Gaston Park, St. Augustine Cathedral, and Plaza Divisoria.</p>
+                <p><strong>Potential Customers in the Area:</strong> Our main target customers include students and young professionals studying or reviewing in the area, office workers and employees from nearby companies, banks, and BPOs looking for coffee breaks and lunch meetings, as well as shoppers and commuters passing through Divisoria and downtown.</p>
+                <p><strong>Advantages of the Location:</strong> Being on a main downtown street guarantees high daily visibility to thousands of people. It provides a stable daily customer base from nearby offices and schools, answers the high demand for a comfortable, air-conditioned venue for meetings, studying, and casual hangouts, and increases the potential for bulk orders and catering for corporate events.</p>
+                
+                <!-- Business Location Image -->
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <img src="Location.jpg" alt="Choco Latte Business Location" style="max-width: 50%; height: 75 px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Management & Kitchen Brigade -->
+        <section id="team">
+            <h2 class="section-title">Management & Kitchen Brigade</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="Angela.jpg" alt="Ma. Frances Angela Valmores" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>MA. FRANCES ANGELA VALMORES</h3>
+                    <div class="role">Manager</div>
+                    <p>The leader who oversees the entire cafe business. They hire and train staff, make work schedules, order supplies, and manage money and daily operations.</p>
+                </div>
+                <div class="team-card">
+                    <img src="Franklin.jpg" alt="Franklin Roa" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>FRANKLIN ROA</h3>
+                    <div class="role">Executive Chef</div>
+                    <p>The head of the kitchen. They plan the menu, create recipes, control food quality, and manage the cooking staff.</p>
+                </div>
+                <div class="team-card">
+                    <img src="Stephen.jpg" alt="Stephen Andrew Torres" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>STEPHEN ANDREW TORRES</h3>
+                    <div class="role">Pastry Chef</div>
+                    <p>A kitchen specialist focused on baked goods. They bake items like bread, cakes, cookies, and pastries, and design sweet menu items.</p>
+                </div>
+                <div class="team-card">
+                    <img src="Athena.jpg" alt="Athena Brielle Virtudazo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>ATHENA BRIELLE VIRTUDAZO</h3>
+                    <div class="role">Barista</div>
+                    <p>Is the beverage expert responsible for brewing espresso, steaming milk, and crafting specialty hot and cold drinks. They also operate complex coffee equipment, maintain a clean bar area, and manage drink inventory.</p>
+                </div>
+                <div class="team-card">
+                    <img src="Joahannah.jpg" alt="Joahanah Jane Banaag" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>JOAHANAH JANE BANAAG</h3>
+                    <div class="role">Cashier</div>
+                    <p>Handles the front counter by greeting customers, taking orders, and processing accurate payments. They answer menu questions for guests and balance the cash register at the end of their shift.</p>
+                </div>
+                <div class="team-card">
+                    <img src="KateAngel.jpg" alt="Angel Kate Cahatol" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-orange); margin: 0 auto 1rem auto; display: block;">
+                    <h3>ANGEL KATE CAHATOL</h3>
+                    <div class="role">Waiter / Waitress</div>
+                    <p>Manages the dining floor by seating guests, taking food orders, and serving items directly to tables. They also ensure a clean dining space by clearing away dirty dishes and wiping down tables.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food Offerings -->
+        <section id="menu">
+            <h2 class="section-title">Our Menu Offerings</h2>
+
+            <!-- Drinks / Coffees -->
+            <div class="menu-category">
+                <h3>Drinks / Coffees</h3>
+                <div class="menu-grid">
+                    <div class="menu-item bestseller">
+                        <img src="Latte.jpeg" alt="Latte" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Latte</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A smooth blend of rich espresso and velvety steamed milk topped with a light layer of foam.</p>
+                        <ul class="price-list">
+                            <li><span>Medium</span> <strong>₱89</strong></li>
+                            <li><span>Large</span> <strong>₱100</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item bestseller">
+                        <img src="Caramel.jpeg" alt="Caramel Macchiato" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Caramel Macchiato</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">Freshly steamed milk with vanilla-flavored syrup marked with espresso and sweet caramel drizzle.</p>
+                        <ul class="price-list">
+                            <li><span>Medium</span> <strong>₱89</strong></li>
+                            <li><span>Large</span> <strong>₱100</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item bestseller">
+                        <img src="Cappucino.jpeg" alt="Cappuccino" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Cappuccino</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A classic espresso drink crafted with equal parts espresso, steamed milk, and thick airy foam.</p>
+                        <ul class="price-list">
+                            <li><span>Medium</span> <strong>₱79</strong></li>
+                            <li><span>Large</span> <strong>₱90</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item">
+                        <img src="Americano.jpeg" alt="Americano" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Americano</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A robust shot of rich espresso diluted with hot water for a clean, bold coffee flavor.</p>
+                        <ul class="price-list">
+                            <li><span>Medium</span> <strong>₱59</strong></li>
+                            <li><span>Large</span> <strong>₱75</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item">
+                        <img src="IcedAmericano.jpeg" alt="Iced Americano" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Iced Americano</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A refreshing chill-out classic made with bold espresso poured over crisp ice and cold water.</p>
+                        <ul class="price-list">
+                            <li><span>Medium</span> <strong>₱69</strong></li>
+                            <li><span>Large</span> <strong>₱80</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pastries & Snacks -->
+            <div class="menu-category">
+                <h3>Pastries & Snacks</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="Brownies.jpg" alt="Brownies" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Brownies</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">Fudgy, deeply chocolatey squares baked to absolute perfection for true sweet tooth lovers.</p>
+                        <ul class="price-list">
+                            <li><span>Regular</span> <strong>₱60</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item">
+                        <img src="Cheesecake.jpeg" alt="Cheesecake" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Cheesecake</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A rich, creamy slice of smooth cheesecake set on a buttery graham cracker crust.</p>
+                        <ul class="price-list">
+                            <li><span>Slice</span> <strong>₱120</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item">
+                        <img src="Croissant.jpg" alt="Croissant" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Croissant</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">Flaky, buttery French pastry with golden layers that melt deliciously in your mouth.</p>
+                        <ul class="price-list">
+                            <li><span>Regular</span> <strong>₱75</strong></li>
+                        </ul>
+                    </div>
+                    <div class="menu-item">
+                        <img src="EggSandwich.jpg" alt="Egg Sandwich" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                        <h4>Egg Sandwich</h4>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.8rem;">A satisfying, protein-packed savory snack made with fresh eggs and soft toasted bread.</p>
+                        <ul class="price-list">
+                            <li><span>Regular</span> <strong>₱30</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <h2 class="section-title">Conclusion</h2>
+            <div class="intro-container">
+                <p>Our café has the potential to become a successful business because it provides tasty food, refreshing drinks, and a relaxing place for customers. We can satisfy our customers by offering affordable prices, friendly service, and different food choices. Our café can stand out from competitors through its creative menu, clean environment, and welcoming atmosphere. As a team, we can help the business succeed by cooperating with one another, doing our responsibilities properly, and always making sure our customers are satisfied.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="intro-container" style="text-align: center;">
+                <p>Have questions, feedback, or inquiries regarding our cafe or business proposal? Reach out directly to our manager:</p>
+                <p style="margin-top: 1rem; font-size: 1.15rem;">
+                    <strong>Email:</strong> <a href="mailto:mfacvalmores@gmail.com" style="color: var(--primary-orange); text-decoration: none; font-weight: 600;">mfacvalmores@gmail.com</a>
+                </p>
+            </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2026 Choco Latte Cafe Business Proposal. All Rights Reserved. <strong>CHAR LOL</strong></p>
+    </footer>
+
+</body>
+</html>
